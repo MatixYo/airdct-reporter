@@ -13,13 +13,18 @@ fs.watch(dump1090Folder, (event, filename) => {
   const body = fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`);
 
   apis.forEach(async (api) => {
-    fetch(api[1], {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body,
-    });
+    try {
+      const result = fetch(api[1], {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body,
+      }).then(res => res.json());
+      console.log(`Sent correctly to ${api[1]}. Response: ${result}`);
+    } catch (error) {
+      console.error(`Failed to send aircraft data to ${api[1]}: ${error}`);
+    }
   })
 });
