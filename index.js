@@ -13,14 +13,13 @@ fs.watch(dump1090Folder, (event, filename) => {
   const body = fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`);
 
   apis.forEach(async (api) => {
-    console.log('Submitting to', api, `${body.aircraft.length} aircraft`);
-    const response = await fetch(api[1], {
+    fetch(api[1], {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body,
-    }).then(res => res.json());
+    });
   })
 });
