@@ -1,8 +1,10 @@
 const fs = require('fs');
+require('dotenv').config();
 
 const dump1090file = '/run/dump1090-fa/aircraft.json';
 
-fs.watch(dump1090file, (event, filename) => {
-  const data = fs.readFileSync(dump1090file);
-  console.log(`${filename} file Changed`, data);
+fs.watch(process.env.DUMP1090_LOCATION, (event, filename) => {
+  const fileContent = fs.readFileSync(dump1090file);
+  const data = JSON.read(fileContent);
+  console.log(`${filename}`, data.aircraft.length);
 });
