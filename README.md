@@ -1,4 +1,4 @@
-##Installation
+## Installation
 
 1. Install Node using [NVM](https://github.com/nvm-sh/nvm).
 2. SSH into PI. Go to `~` directory and run following `git clone https://github.com/MatixYo/airdct-reporter.git`
