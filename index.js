@@ -10,8 +10,7 @@ const apis = Object.entries(process.env).filter(([key]) => key.startsWith('API_U
 
 fs.watch(dump1090Folder, (event, filename) => {
   if(filename !== aircraftFilename) return;
-  const fileContent = fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`);
-  const body = JSON.parse(fileContent);
+  const body = fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`);
 
   apis.forEach(async (api) => {
     console.log('Submitting to', api, `${body.aircraft.length} aircraft`);
@@ -21,8 +20,7 @@ fs.watch(dump1090Folder, (event, filename) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: fileContent
+      body,
     }).then(res => res.json());
-    console.log(response);
   })
 });
