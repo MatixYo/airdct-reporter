@@ -17,7 +17,11 @@ fs.watch(dump1090Folder, (event, filename) => {
     console.log('Submitting to', api, `${body.aircraft.length} aircraft`);
     const response = await fetch(api[1], {
       method: 'POST',
-      body
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
     }).then(res => res.json());
     console.log(response);
   })
