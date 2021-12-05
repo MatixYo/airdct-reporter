@@ -16,6 +16,7 @@ fs.watch(dump1090Folder, (event, filename) => {
   apis.forEach((api) => {
     console.log('Submitting to', api, `${body.aircraft.length} aircraft`);
     fetch(api[1], {
+      method: 'POST',
       body
     });
   })
