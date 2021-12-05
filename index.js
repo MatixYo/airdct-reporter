@@ -14,7 +14,7 @@ fs.watch(dump1090Folder, (event, filename) => {
 
   apis.forEach(async (api) => {
     try {
-      const result = fetch(api[1], {
+      const result = await fetch(api[1], {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
