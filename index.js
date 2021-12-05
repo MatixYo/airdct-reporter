@@ -21,8 +21,8 @@ fs.watch(dump1090Folder, (event, filename) => {
           'Content-Type': 'application/json'
         },
         body,
-      }).then(res => res.json());
-      console.log(`Sent correctly to ${api[1]}. Response: ${result}`);
+      });
+      console.log(`Sent correctly to ${api[1]}.`);
     } catch (error) {
       console.error(`Failed to send aircraft data to ${api[1]}: ${error}`);
     }
