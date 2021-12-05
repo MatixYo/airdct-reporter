@@ -21,7 +21,7 @@ fs.watch(dump1090Folder, (event, filename) => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(body)
+      body: fileContent
     }).then(res => res.json());
     console.log(response);
   })
