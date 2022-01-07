@@ -8,6 +8,12 @@ const aircraftFilename = 'aircraft.json';
 
 const apis = Object.entries(process.env).filter(([key]) => key.startsWith('API_URL_'));
 
+while(!fs.existsSync(dump1090Folder)) {
+  await new Promise(resolve => setTimeout(resolve, 250));
+}
+
+console.log(`Starting watching ${dump1090Folder} for ${aircraftFilename}`);
+
 fs.watch(dump1090Folder, (event, filename) => {
   if(filename !== aircraftFilename) return;
   const body = fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`);
