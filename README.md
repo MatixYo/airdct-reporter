@@ -1,5 +1,11 @@
-## Installation
+# Installation using script
+Run the following script in console:
 
+`bash <(wget -qO- https://raw.githubusercontent.com/MatixYo/overflights-reporter/main/install.sh)`
+
+After the script is executed it will ask you to copy and run command to allow launching reporter on startup
+
+## Installation
 1. Install Node using [NVM](https://github.com/nvm-sh/nvm).
 2. SSH into PI. Go to `~` directory and run following `git clone https://github.com/MatixYo/airdct-reporter.git`
 3. Run `npm install` and `npm run start` to verify it works
