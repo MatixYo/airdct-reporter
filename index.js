@@ -1,8 +1,10 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 import dotenv from 'dotenv';
+import { machineIdSync } from "node-machine-id";
 
 dotenv.config();
+const id = machineIdSync();
 const dump1090Folder = process.env.DUMP1090_FOLDER;
 const aircraftFilename = 'aircraft.json';
 
@@ -18,7 +20,7 @@ console.log(`Starting watching ${dump1090Folder} for ${aircraftFilename}`);
 
 fs.watch(dump1090Folder, (event, filename) => {
   if(filename !== aircraftFilename) return;
-  const body = fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`);
+  const body = JSON.parse(fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`));
 
   apis.forEach(async (api) => {
     try {
@@ -28,7 +30,10 @@ fs.watch(dump1090Folder, (event, filename) => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body,
+        body: JSON.stringify({
+          ...body,
+          machineId: id
+        }),
       });
       console.log(`Sent correctly to ${api[1]}.`);
     } catch (error) {
