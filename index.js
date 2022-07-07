@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 import dotenv from 'dotenv';
-import { machineIdSync } from "node-machine-id";
+import nmi from 'node-machine-id';
 
 dotenv.config();
-const id = machineIdSync();
+const id = nmi.machineIdSync();
 const dump1090Folder = process.env.DUMP1090_FOLDER;
 const aircraftFilename = 'aircraft.json';
 
