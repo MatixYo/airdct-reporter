@@ -3,6 +3,8 @@ Run the following script in console:
 
 `bash <(wget -qO- https://raw.githubusercontent.com/MatixYo/overflights-reporter/main/install.sh)`
 
+1. Click "Yes"
+
 After the script is executed it will ask you to copy and run command to allow launching reporter on startup
 
 ## Installation
