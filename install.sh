@@ -19,7 +19,7 @@ cd airdct-reporter
 npm install
 
 # 3. Start app
-sudo npm install -g pm2
+npm install -g pm2
 pm2 start index.js
 pm2 save
 pm2 startup

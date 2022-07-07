@@ -1,7 +1,7 @@
 # Installation using script
 Run the following script in console:
 
-`bash <(wget -qO- https://raw.githubusercontent.com/MatixYo/overflights-reporter/main/install.sh)`
+`sudo bash <(wget -qO- https://raw.githubusercontent.com/MatixYo/overflights-reporter/main/install.sh)`
 
 1. Click "Yes"
 
