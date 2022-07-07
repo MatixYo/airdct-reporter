@@ -21,6 +21,7 @@
   "homepage": "https://github.com/MatixYo/airdct-reporter#readme",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "node-fetch": "^3.1.0"
+    "node-fetch": "^3.1.0",
+    "node-machine-id": "^1.1.12"
   }
 }
