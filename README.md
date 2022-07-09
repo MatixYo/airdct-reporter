@@ -1,11 +1,12 @@
+# About
+In order to use this script you need to have a running dump1090 instance installed on your Raspberry Pi.
+This script watches changes to aircraft.json file and submits them to a list of endpoints.
+It also adds machineId param with unique ID of device this script is running on.
+
 # Installation using script
 Run the following script in console:
 
-`sudo bash <(wget -qO- https://raw.githubusercontent.com/MatixYo/overflights-reporter/main/install.sh)`
-
-1. Click "Yes"
-
-After the script is executed it will ask you to copy and run command to allow launching reporter on startup
+`sudo bash -c "$(wget -O - https://raw.githubusercontent.com/MatixYo/overflights-reporter/main/install.sh)"`
 
 ## Installation
 1. Install Node using [NVM](https://github.com/nvm-sh/nvm).
