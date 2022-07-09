@@ -10,7 +10,7 @@ const aircraftFilename = 'aircraft.json';
 
 const apis = Object.entries(process.env).filter(([key]) => key.startsWith('API_URL_'));
 
-console.log('App running. Waiting for dump1090 data...')
+console.log(`App running. Machine id: ${id}. Waiting for dump1090 data...`)
 
 while(!fs.existsSync(dump1090Folder)) {
   await new Promise(resolve => setTimeout(resolve, 250));
