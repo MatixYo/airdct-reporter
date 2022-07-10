@@ -22,6 +22,7 @@ fs.watch(dump1090Folder, (event, filename) => {
   if(filename !== aircraftFilename) return;
   const body = JSON.parse(fs.readFileSync(`${dump1090Folder}/${aircraftFilename}`));
 
+  console.log('submitting', body)
   apis.forEach(async (api) => {
     try {
       const result = await fetch(api[1], {
