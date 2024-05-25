@@ -14,8 +14,8 @@ sudo apt install git
 
 # 2. Clone app and install dependencies
 cd ~
-git clone https://github.com/MatixYo/airdct-reporter.git
-cd airdct-reporter
+git clone https://github.com/MatixYo/overflights-reporter.git
+cd overflights-reporter
 npm install
 
 # 3. Start app
